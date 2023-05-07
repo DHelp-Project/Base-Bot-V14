@@ -1,0 +1,14 @@
+{
+  "name": "discordjs_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ifanoxy#7183",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.10.2"
+  }
+}

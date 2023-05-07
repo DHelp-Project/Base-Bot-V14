@@ -1,0 +1,13 @@
+module.exports = class ButtonsHandler{
+    constructor(handler) {
+        this.handler = handler;
+        this.handler.getFiles(__dirname + "/../Interactions/buttons", this)
+    }
+
+    registerFile(file) {
+        const command = require(file);
+        this.handler.client.buttons.set(command.customId, command)
+        console.log(`Buttons - Reading ${command.customId} Button`)
+        delete require.cache[require.resolve(file)];
+    }
+}

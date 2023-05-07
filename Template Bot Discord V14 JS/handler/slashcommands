@@ -1,0 +1,14 @@
+module.exports = class SlashCommandsHandler{
+    constructor(handler) {
+        this.handler = handler;
+        this.handler.getFiles(__dirname + "/../Interactions/slashCommands", this);
+    }
+
+    registerFile(file) {
+        const command = require(file);
+        if (!command?.data?.name) throw `Il y a un problème dans la commande ${file}`
+        this.handler.client.slashCommands.set(command.data.name, command)
+        console.log(`SlashCommands - Reading ${command.data.name} SlashCommands`)
+        delete require.cache[require.resolve(file)];
+    }
+}
